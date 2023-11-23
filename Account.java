@@ -23,8 +23,8 @@ public class Account {
 		balance = arg2;
 		thisAccountNumber = accountNumbers;
 		accountNumbers +=1;
-		SavingsAccount savingsAccount = new SavingsAccount(arg1, arg3);
-		otherAccount = savingsAccount;
+		SavingsAccount savingsaccount = new SavingsAccount(arg1, arg3);
+		otherAccount = savingsaccount;
 	}
 	
 	public int getAccountNumber() {
@@ -48,25 +48,25 @@ public class Account {
 	}
 	
 	public SavingsAccount getSavingsAccount() {
-		SavingsAccount sa = null;
 		
-		if (otherAccount != null) {
-			sa = otherAccount;
-		}
-		
-		return sa;
+		 if (otherAccount != null && otherAccount instanceof SavingsAccount) {
+		        return (SavingsAccount) otherAccount;
+		    } else {
+		        return null; 
+	    }
 	}
+
 	
 	public String toString() {
 		
 		String s = "";
-		/*if () {	
+		if (this instanceof SavingsAccount) {	
 			s = "Savings Account: "; 
-		} else {
+		} else if (this instanceof CurrentAccount){
 			s = "Current Account: "; 
-		}*/
+		}
 
-		s = s + " with account number " + thisAccountNumber + ": " + balance+"\n";
+		s = s + "with account number " + thisAccountNumber + ": " + balance+"\n";
 		
 		StringBuilder builder = new StringBuilder();
 		
@@ -74,7 +74,6 @@ public class Account {
 			String addon = transactions.get(i) + "\n";
 			builder.append(addon);
 		}
-		
 		return s + builder;
 	}
 	
