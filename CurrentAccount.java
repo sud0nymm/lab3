@@ -13,11 +13,25 @@ public class CurrentAccount extends Account {
 	}
 	
 	public void savings(double arg) {
-		//check if savings account is attached to current account
-		//if not, do nothing
-		//if yes, distinguish between double >/< 0 (transfer to or from)
-		//make sure that balances of both accounts stay over 0 if transfer
-		//if arg>0 money goes from current account to savings account
-		//if arg=<0 money goes from savings account to current account
+		
+		if (this.getSavingsAccount() != null) {
+			if (arg > 0) {
+				if (this.getBalance()-arg >= 0) {
+					this.setBalance(this.getBalance()-arg);
+					this.getSavingsAccount().setBalance(this.getSavingsAccount().getBalance()+arg);
+					this.transactions.add("To savings account: ");
+					
+				}
+			}else {
+				if (this.getSavingsAccount().getBalance()-arg >= 0) {
+					this.getSavingsAccount().setBalance(this.getSavingsAccount().getBalance()-arg);
+					this.setBalance(this.getBalance()+arg);
+					
+					
+				}
+			}
+		}else {
+			;
+		}
 	}
 }
