@@ -4,6 +4,15 @@ public class Lab3 {
 
 	public static void main(String[] args) {
 		
+		/*
+		SavingsAccount sa = new SavingsAccount("poop", 1.0);
+		CurrentAccount ca = new CurrentAccount("poo", 1.0, 1.0);
+		
+		System.out.println(sa.toString());
+		System.out.println(ca.toString());
+		*/
+		
+		/*
 		Bank theBank = new Bank("Great Northern Bank");
 		
 		System.out.println("Testing createAccount");
@@ -37,6 +46,7 @@ public class Lab3 {
 		System.out.println(theBank.checkPerson("Peter"));
 		theBank.currentToSavings("Peter",5000);
 		System.out.println(theBank.checkPerson("Peter"));
+		*/
 	}
 
 }
